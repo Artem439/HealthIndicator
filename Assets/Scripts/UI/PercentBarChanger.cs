@@ -12,6 +12,7 @@ namespace UI
         private Image _image;
         
         private float _healthDivider = 100f;
+        private float _minHealth = 0f;
 
         private void Awake()
         {
@@ -30,9 +31,9 @@ namespace UI
         
         private void Changer(float currentHealth, float maxHealth)
         {
-            if (currentHealth <= 0)
+            if (currentHealth <= _minHealth)
             {
-                _image.fillAmount = 0;
+                _image.fillAmount = _minHealth;
                 
                 return;
             }

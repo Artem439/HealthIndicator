@@ -14,6 +14,7 @@ namespace UI
         private Slider _slider;
         private Coroutine _coroutine;
         
+        private const float Epsilon = 0.00001f;
 
         private void Awake()
         {
@@ -40,7 +41,7 @@ namespace UI
 
         private IEnumerator SmoothChangBarCoroutine(float currentHealth, float maxHealth)
         {
-            while (Mathf.Abs(_slider.value - currentHealth / maxHealth) > 0.00001f)
+            while (Mathf.Abs(_slider.value - currentHealth / maxHealth) > Epsilon)
             {
                 _slider.value = Mathf.MoveTowards(_slider.value, currentHealth / maxHealth, _speed * Time.deltaTime);
                 
