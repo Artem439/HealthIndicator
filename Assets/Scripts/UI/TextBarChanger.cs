@@ -10,8 +10,6 @@ namespace UI
         [SerializeField] private HealthBase _playerHealth;
         
         private TextMeshProUGUI _text;
-        
-        private float _minHealth = 0f;
 
         private void Awake()
         {
@@ -30,14 +28,7 @@ namespace UI
 
         private void Changer(float currentHealth, float maxHealth)
         {
-            if (currentHealth <= _minHealth)
-            {
-                _text.text = _minHealth + "/" + maxHealth;
-                
-                return;
-            }
-            
-            _text.text = currentHealth + "/" + maxHealth;
+           _text.text = currentHealth + "/" + maxHealth;
         }
     }
 }

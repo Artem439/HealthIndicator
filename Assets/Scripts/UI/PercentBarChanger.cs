@@ -10,9 +10,6 @@ namespace UI
         [SerializeField] private HealthBase _playerHealth;
         
         private Image _image;
-        
-        private float _healthDivider = 100f;
-        private float _minHealth = 0f;
 
         private void Awake()
         {
@@ -21,24 +18,17 @@ namespace UI
         
         private void OnEnable()
         {
-            _playerHealth.HealthChanged += Changer;
+            _playerHealth.HealthChanged += OnHealthValueChanger;
         }
 
         private void OnDisable()
         {
-            _playerHealth.HealthChanged -= Changer;
+            _playerHealth.HealthChanged -= OnHealthValueChanger;
         }
         
-        private void Changer(float currentHealth, float maxHealth)
+        private void OnHealthValueChanger(float currentHealth, float maxHealth)
         {
-            if (currentHealth <= _minHealth)
-            {
-                _image.fillAmount = _minHealth;
-                
-                return;
-            }
-            
-            _image.fillAmount = currentHealth / _healthDivider;
+            _image.fillAmount = currentHealth / maxHealth;
         }
     }
 }

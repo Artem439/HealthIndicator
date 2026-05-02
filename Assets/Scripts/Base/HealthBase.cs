@@ -11,7 +11,7 @@ namespace Base
         
         public event Action Death;
     
-        //New code
+                            //New code
         public event Action<float, float> HealthChanged;
 
         private void Start()
@@ -28,17 +28,16 @@ namespace Base
             _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
             
             if (_currentHealth <= 0)
-            {
                 Death?.Invoke();
-                                //New code
-                HealthChanged?.Invoke(_currentHealth, _maxHealth);
-            }
-            else            
+                            //New code
+            if (_currentHealth < 0)
             {
-                HealthChanged?.Invoke(_currentHealth, _maxHealth);
+                _currentHealth = 0;
             }
+            
+            HealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
-        //New code
+                            //New code
         public void Heal(float heal)
         {
             _currentHealth += heal;

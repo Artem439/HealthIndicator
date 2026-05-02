@@ -8,13 +8,13 @@ namespace UI
     [RequireComponent(typeof(Slider))]
     public class SmoothBarChanger : MonoBehaviour
     {
+        private const float Epsilon = 0.00001f;
+        
         [SerializeField] private HealthBase _playerHealth;
         [SerializeField] private float _speed;
         
         private Slider _slider;
         private Coroutine _coroutine;
-        
-        private const float Epsilon = 0.00001f;
 
         private void Awake()
         {
