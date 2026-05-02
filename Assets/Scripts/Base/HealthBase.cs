@@ -35,8 +35,11 @@ namespace Base
             HealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
         
-        public void Healing(float heal)
+        public void Heal(float heal)
         {
+            if (heal <= 0) 
+                return;
+            
             _currentHealth += heal;
         
             if (_currentHealth > _maxHealth)
