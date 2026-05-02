@@ -5,7 +5,6 @@ namespace Prototype
 {
     public class HealPotion : MonoBehaviour
     {
-        //New code
         [SerializeField] private HealthBase _health;
         [SerializeField] private float _healAmount;
     
