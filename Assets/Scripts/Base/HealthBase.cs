@@ -26,19 +26,18 @@ namespace Base
 
             _currentHealth -= damage;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
-            
-            if (_currentHealth <= 0)
-                Death?.Invoke();
+                
                             //New code
             if (_currentHealth < 0)
             {
+                Death?.Invoke();                
                 _currentHealth = 0;
             }
             
             HealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
                             //New code
-        public void Heal(float heal)
+        public void Healing(float heal)
         {
             _currentHealth += heal;
         

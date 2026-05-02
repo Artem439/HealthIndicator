@@ -18,15 +18,15 @@ namespace UI
 
         private void OnEnable()
         {
-            _playerHealth.HealthChanged += Changer;
+            _playerHealth.HealthChanged += OnHealthChanged;
         }
 
         private void OnDisable()
         {
-            _playerHealth.HealthChanged -= Changer;
+            _playerHealth.HealthChanged -= OnHealthChanged;
         }
 
-        private void Changer(float currentHealth, float maxHealth)
+        private void OnHealthChanged(float currentHealth, float maxHealth)
         {
            _text.text = currentHealth + "/" + maxHealth;
         }

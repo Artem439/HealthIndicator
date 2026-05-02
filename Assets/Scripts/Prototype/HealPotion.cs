@@ -11,7 +11,7 @@ namespace Prototype
     
         public void Collect()
         {
-            _health.Heal(_healAmount);
+            _health.Healing(_healAmount);
         }
     }
 }

@@ -18,15 +18,15 @@ namespace UI
         
         private void OnEnable()
         {
-            _playerHealth.HealthChanged += OnHealthValueChanger;
+            _playerHealth.HealthChanged += OnHealthChanged;
         }
 
         private void OnDisable()
         {
-            _playerHealth.HealthChanged -= OnHealthValueChanger;
+            _playerHealth.HealthChanged -= OnHealthChanged;
         }
         
-        private void OnHealthValueChanger(float currentHealth, float maxHealth)
+        private void OnHealthChanged(float currentHealth, float maxHealth)
         {
             _image.fillAmount = currentHealth / maxHealth;
         }

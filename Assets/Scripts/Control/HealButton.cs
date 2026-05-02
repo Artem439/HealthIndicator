@@ -29,7 +29,7 @@ namespace Control
     
         private void AddHealth()
         {
-            _health.Heal(_healAmount);
+            _health.Healing(_healAmount);
         }
     }
 }
