@@ -39,12 +39,8 @@ namespace Base
         {
             if (heal <= 0) 
                 return;
-            
-            _currentHealth += heal;
-        
-            if (_currentHealth > _maxHealth)
-                _currentHealth = _maxHealth;
-        
+
+            _currentHealth = Math.Min(_currentHealth + heal, _maxHealth);
             HealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
     }
